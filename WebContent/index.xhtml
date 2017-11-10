@@ -8,30 +8,20 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head></h:head>
 <h:body>
-<h:form id="sportForm">
-<p:dataTable id="sportTable" value="sportsingBean.updateMatchResult" var="match">
-
-	<p:column headerText="Namn">
-	<h:outputText value="#{match.name}" />
-	</p:column>
-	
-	
-</p:dataTable>
-
-	
+	<h:form id="sportForm">
+		<p:dataTable id="sportTable" value="#{sportsingBean.matchResult}" var="sb">
+			<f:facet name="header">Matches</f:facet>
+				
+				<p:column headerText="Sport"> <h:outputText value="sb.sports}" /> </p:column>
+				<p:column headerText="Namn"><h:outputText value="sb.name}" /></p:column>
+				<p:column headerText="Score"><h:outputText value="sb.score}" /></p:column>
+				<p:column headerText="Plasering"><h:outputText value="sb.place}" /></p:column>
 
 
 
 
 
-
-
-		<p:commandLink value="Uppdatera resultat" action="#{sportsingBean.updateMatchResult}" ajax="false" partialSubmit="false"/>
-</h:form>
-
-
-
-
-
+		</p:dataTable>
+	</h:form>
 </h:body>
 </html>
