@@ -5,10 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.GenericType;
-import javax.ws.rs.core.MediaType;
+import javax.ws.rs.client.*;
+import javax.ws.rs.core.*;
 import com.sportsing.api.Match;
 
 @Named
@@ -27,4 +25,6 @@ public class SportsingBean implements Serializable {
 
 		return matchResult;
 	}
+
+
 }
