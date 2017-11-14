@@ -8,16 +8,63 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head></h:head>
 <h:body>
-	<h:form id="sportForm">
-		<p:dataTable id="sportTable" value="#{sportsingBean.matchResult}" var="sb">
+	<h:form>
+		<p:dataTable id="matchTable" value="#{sportsingBean.matchResult}"
+			var="match">
 			<f:facet name="header">Matches</f:facet>
-				
-				<p:column headerText="Sport"> <h:outputText value="sb.sport}" /> </p:column>
-				<p:column headerText="Namn"><h:outputText value="#{sb.contenders.name}" /></p:column>
-				<p:column headerText="Score"><h:outputText value="sb.score}" /></p:column>
-				<p:column headerText="Plasering"><h:outputText value="sb.place}" /></p:column>
-
+			<p:columnGroup type="header">
+				<p:row>
+					<p:column headerText="Name" />
+					<p:column headerText="Score" />
+					<p:column headerText="Place" />
+				</p:row>
+			</p:columnGroup>
+			<p:subTable value="#{match.contenders}" var="contender">
+				<f:facet name="header">
+					<h:outputText value="#{match.sport}" />
+				</f:facet>
+				<p:column>
+					<h:outputText value="#{contender.name}" />
+				</p:column>
+				<p:column>
+					<h:outputText value="#{contender.score}" />
+				</p:column>
+				<p:column>
+					<h:outputText value="#{contender.place}" />
+				</p:column>
+			</p:subTable>
 		</p:dataTable>
 	</h:form>
+
+<p:separator />
+
+	<h:form>
+		<p:dataTable id="DBmatchTable" value="#{sportsingBean.matchResult}"
+			var="match">
+			<f:facet name="header">DBMatches</f:facet>
+			<p:columnGroup type="header">
+				<p:row>
+					<p:column headerText="Name" />
+					<p:column headerText="Score" />
+					<p:column headerText="Place" />
+				</p:row>
+			</p:columnGroup>
+			<p:subTable value="#{match.contenders}" var="contender">
+				<f:facet name="header">
+					<h:outputText value="#{match.sport}" />
+				</f:facet>
+				<p:column>
+					<h:outputText value="#{contender.name}" />
+				</p:column>
+				<p:column>
+					<h:outputText value="#{contender.score}" />
+				</p:column>
+				<p:column>
+					<h:outputText value="#{contender.place}" />
+				</p:column>
+			</p:subTable>
+		</p:dataTable>
+	</h:form>
+	
 </h:body>
 </html>
