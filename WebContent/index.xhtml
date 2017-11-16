@@ -39,8 +39,8 @@
 <p:separator />
 
 	<h:form>
-		<p:dataTable id="DBmatchTable" value="#{sportsingBean.matchResult}"
-			var="match">
+		<p:dataTable id="DBmatchTable" value="#{dbMatchBean.dbMatchResult}"
+			var="dbmatch">
 			<f:facet name="header">DBMatches</f:facet>
 			<p:columnGroup type="header">
 				<p:row>
@@ -49,18 +49,18 @@
 					<p:column headerText="Place" />
 				</p:row>
 			</p:columnGroup>
-			<p:subTable value="#{match.contenders}" var="contender">
+			<p:subTable value="dbmatch.contenders}" var="contender">
 				<f:facet name="header">
-					<h:outputText value="#{match.sport}" />
+					<h:outputText value="dbmatch.sport}" />
 				</f:facet>
 				<p:column>
-					<h:outputText value="#{contender.name}" />
+					<h:outputText value="contender.name}" />
 				</p:column>
 				<p:column>
-					<h:outputText value="#{contender.score}" />
+					<h:outputText value="contender.score}" />
 				</p:column>
 				<p:column>
-					<h:outputText value="#{contender.place}" />
+					<h:outputText value="contender.place}" />
 				</p:column>
 			</p:subTable>
 		</p:dataTable>
